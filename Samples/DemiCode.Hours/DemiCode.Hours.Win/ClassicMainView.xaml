@@ -1,0 +1,35 @@
+﻿<mvvm:WindowView x:Class="DemiCode.Hours.Win.ClassicMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm"
+    xmlns:hours="clr-namespace:DemiCode.Hours.Win" xmlns:projects="clr-namespace:DemiCode.Hours.Win.Projects"
+    xmlns:employees="clr-namespace:DemiCode.Hours.Win.Employees"
+    xmlns:workItems="clr-namespace:DemiCode.Hours.Win.WorkItems"
+    Width="640" Height="480">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top"
+              mvvm:Commands.TargetContainer="{Binding ElementName=MainContainer}">
+            <MenuItem Header="_Data">
+                <MenuItem Header="Register _Work items"
+                          Command="mvvm:Commands.OpenView"
+                          mvvm:Commands.ViewType="{x:Type workItems:RegisterWorkItemsView}"/>
+                <MenuItem Header="_Projects"
+                          Command="mvvm:Commands.OpenView"
+                          mvvm:Commands.ViewType="{x:Type projects:ProjectListView}"/>
+                <MenuItem Header="_Employees"
+                          Command="mvvm:Commands.OpenView"
+                          mvvm:Commands.ViewType="{x:Type employees:EmployeeListView}"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About Hours"
+                          Command="mvvm:Commands.OpenView"
+                          mvvm:Commands.ViewType="{x:Type hours:AboutView}"/>
+            </MenuItem>
+        </Menu>
+        <!--<Menu DockPanel.Dock="Top"
+              ItemsSource="{StaticResource MainMenu}"
+              ItemContainerStyle="{StaticResource WpfMenuItemStyle}"
+              mvvm:ViewControl.TargetContainer="{Binding ElementName=MainContainer}"/>-->
+        <ContentControl Name="MainContainer"/>
+    </DockPanel>
+</mvvm:WindowView>

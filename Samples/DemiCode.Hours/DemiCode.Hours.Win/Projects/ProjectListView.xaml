@@ -1,0 +1,61 @@
+﻿<mvvm:UserControlView x:Class="DemiCode.Hours.Win.Projects.ProjectListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm"
+    MinHeight="200" MinWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ViewResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <Border DockPanel.Dock="Top" BorderBrush="Navy" BorderThickness="2 2 2 0" Background="LightBlue">
+                <TextBlock FontWeight="Bold" Text="Projects" Margin="3 1 3 1"/>
+            </Border>
+            <Border BorderBrush="Navy" BorderThickness="2">
+                <ListBox ItemsSource="{Binding Projects}"
+                         ItemContainerStyle="{StaticResource HorizontallyStretchingListBoxItemStyle}"
+                         IsSynchronizedWithCurrentItem="True">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                            <!--<Button Content="{Binding Name}"
+                                    Command="mvvm:ViewControl.OpenView"
+                                    CommandParameter="{Binding}"
+                                    mvvm:ViewControl.ViewType="{x:Type projects:ProjectView}"
+                                    mvvm:ViewControl.TargetContainer="{Binding ElementName=ProjectViewHost}"/>-->
+                            <!--<TextBlock Text="{Binding Name}"
+                                       mvvm:ViewControl.ViewType="{x:Type views:ProjectView}"
+                                       mvvm:ViewControl.TargetContainer="{Binding ElementName=ProjectViewHost}">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick"
+                                                  Command="mvvm:ViewControl.OpenUserControlView"/>
+                                </TextBlock.InputBindings>
+                            </TextBlock>-->
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </DockPanel>
+        <GridSplitter Width="5"
+                      HorizontalAlignment="Left"
+                      Grid.Column="1"/>
+        <!--<TextBlock Grid.Column="1" DataContext="{Binding Projects}" Text="{Binding Name}"/>-->
+        <!--<projects:ProjectView Grid.Column="1" DataContext="{Binding Projects}" />-->
+        <ContentControl Grid.Column="1" DataContext="{Binding Projects}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                    <!--<projects:ProjectView/>-->
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+    </Grid>
+</mvvm:UserControlView>

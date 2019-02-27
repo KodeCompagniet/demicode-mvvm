@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm">
+    <!-- 
+    ItemContainerStyle to use for wpf:MenuItem
+    -->
+    <Style x:Key="WpfMenuItemStyle">
+        <Setter Property="MenuItem.Header" Value="{Binding Header}"/>
+        <Setter Property="MenuItem.ItemsSource" Value="{Binding Items}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Action}" Value="OpenView">
+                <Setter Property="MenuItem.Command" Value="mvvm:Commands.OpenView"/>
+                <Setter Property="mvvm:Commands.ViewType" Value="{Binding ViewType}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <!-- 
+    Base style for buttons that bind to a menu
+    -->
+    <Style x:Key="MenuButtonStyle" TargetType="{x:Type ButtonBase}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Action}" Value="OpenView">
+                <Setter Property="Command" Value="mvvm:Commands.OpenView"/>
+                <Setter Property="mvvm:Commands.ViewType" Value="{Binding ViewType}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <!-- 
+    Hours Application Main Menu 
+    -->
+    <Style x:Key="HoursMenuStyle" TargetType="{x:Type ListBox}">
+        <Setter Property="Margin" Value="6"/>
+    </Style>
+    <Style x:Key="HoursMenuLevel1ItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="HoursMenuLevel1BorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <Style x:Key="HoursMenuLevel1ButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MenuButtonStyle}">
+        <Setter Property="Background" Value="LightBlue"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="BorderBrush" Value="Blue"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0 0 0 1"/>
+    </Style>
+    <Style x:Key="HoursMenuLevel2ItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="4 0 4 1"/>
+    </Style>
+    <Style x:Key="HoursMenuLevel2ButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MenuButtonStyle}">
+        <Setter Property="Background" Value="LightGreen"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="BorderBrush" Value="Green"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+</ResourceDictionary>

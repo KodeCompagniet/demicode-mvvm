@@ -1,0 +1,60 @@
+﻿<mvvm:WindowView x:Class="DemiCode.Hours.Win.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm"
+    Width="640" Height="480">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/MainMenu.xaml" />
+                <ResourceDictionary Source="/Resources/MenuResources.xaml" />
+                <ResourceDictionary Source="/Resources/HoursMenuResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="MainWindowPaneStyle" TargetType="{x:Type Border}">
+                <Setter Property="BorderBrush" Value="Navy"/>
+                <Setter Property="BorderThickness" Value="3"/>
+                <Setter Property="CornerRadius" Value="3"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Style="{StaticResource MainWindowPaneStyle}" Margin="0 0 5 0">
+                <ListBox BorderThickness="0"
+                         Style="{StaticResource HoursMenuStyle}"
+                         ItemContainerStyle="{StaticResource HoursMenuLevel1ItemStyle}"
+                         ItemsSource="{StaticResource MainMenu}"
+                         mvvm:Commands.TargetContainer="{Binding ElementName=MainContainer}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource HoursMenuLevel1BorderStyle}">
+                                <StackPanel>
+                                    <Button Content="{Binding Header}"
+                                            Style="{StaticResource HoursMenuLevel1ButtonStyle}"/>
+                                    <ListBox BorderThickness="0"
+                                         ItemContainerStyle="{StaticResource HoursMenuLevel2ItemStyle}"
+                                         ItemsSource="{Binding}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button Content="{Binding Header}"
+                                                        Style="{StaticResource HoursMenuLevel2ButtonStyle}"/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+            <GridSplitter Margin="0,0,0,0" Name="gridSplitter1" Width="5" />
+            <Border Grid.Column="1" Style="{StaticResource MainWindowPaneStyle}">
+                <ContentControl Name="MainContainer" Grid.ColumnSpan="2" />
+            </Border>
+        </Grid>
+    </DockPanel>
+</mvvm:WindowView>

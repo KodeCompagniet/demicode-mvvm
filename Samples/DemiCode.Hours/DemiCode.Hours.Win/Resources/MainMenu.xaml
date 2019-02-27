@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xmlns="clr-namespace:DemiCode.Hours.Win.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:hours="clr-namespace:DemiCode.Hours.Win"
+    xmlns:projects="clr-namespace:DemiCode.Hours.Win.Projects"
+    xmlns:employees="clr-namespace:DemiCode.Hours.Win.Employees">
+    <MenuItem x:Key="MainMenu" Header="Hours">
+        <MenuItem Header="Data">
+            <MenuItem Header="Employees" Action="OpenView" ViewType="{x:Type employees:EmployeeListView}"/>
+            <MenuItem Header="Projects" Action="OpenView" ViewType="{x:Type projects:ProjectListView}"/>
+        </MenuItem>
+        <MenuItem Header="Help">
+            <MenuItem Header="About Hours" Action="OpenView" ViewType="{x:Type hours:AboutView}"/>
+        </MenuItem>
+    </MenuItem>
+</wpf:ResourceDictionary>

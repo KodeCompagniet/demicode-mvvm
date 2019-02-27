@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>$version$</version>
+    <authors>Peter Lillevold</authors>
+    <owners>KodeCompagniet AS</owners>
+    <dependencies>
+      <dependency id="Autofac" version="3.5.2" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+    <id>DemiCode.Mvvm</id>
+    <title>DemiCode.Mvvm</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MVVM implementation for WPF 4.0. NOTE: this is an initial release to the public meant for users already familiar with the DemiCode.Mvvm API. Online documentation is not yet available.</description>
+    <copyright>KodeCompagniet AS</copyright>
+    <language>en-US</language>
+    <tags>mvvm wpf net40</tags>
+  </metadata>
+  <files>
+    <file src="DemiCode.Mvvm\bin\x86\release\DemiCode.Mvvm.dll" target="lib\net40\DemiCode.Mvvm.dll" />
+    <file src="DemiCode.Mvvm\bin\x86\release\DemiCode.Mvvm.pdb" target="lib\net40\DemiCode.Mvvm.pdb" />
+    <file src="DemiCode.Mvvm\bin\x86\release\DemiCode.Mvvm.xml" target="lib\net40\DemiCode.Mvvm.xml" />
+    <file src="DemiCode.Mvvm\bin\x86\release\System.Windows.Interactivity.dll" target="lib\net40\System.Windows.Interactivity.dll" />
+    <file src="DemiCode.Mvvm\**\*.cs" target="src" />
+  </files>
+</package>

@@ -1,0 +1,45 @@
+﻿<Mvvm:UserControlView x:Class="WpfProjectTemplate.IndexedTemplateHostView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm"
+                      xmlns:WpfProjectTemplate="clr-namespace:WpfProjectTemplate"
+                      xmlns:mvvmWpf="clr-namespace:DemiCode.Mvvm.Wpf;assembly=DemiCode.Mvvm"
+                      xmlns:Views="clr-namespace:WpfProjectTemplate.Views" mc:Ignorable="d" 
+                      d:DataContext="{d:DesignInstance WpfProjectTemplate:IndexedTemplateHostViewModel}"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Mvvm:UserControlView.Resources>
+        <mvvmWpf:IndexedDataTemplateSelector x:Key="Templates">
+            <mvvmWpf:IndexedDataTemplateSelector.Templates>
+                <DataTemplate>
+                    <Views:MessageListenerView DataContext="0" />
+                </DataTemplate>
+                <DataTemplate>
+                    <Views:MessageListenerView DataContext="1" />
+                </DataTemplate>
+                <DataTemplate>
+                    <Views:MessageListenerView DataContext="2" />
+                </DataTemplate>
+                <DataTemplate>
+                    <Views:UntypedMessageListenerView />
+                </DataTemplate>
+                <DataTemplate>
+                    <Views:UntypedMessageListenerView />
+                </DataTemplate>
+            </mvvmWpf:IndexedDataTemplateSelector.Templates>
+        </mvvmWpf:IndexedDataTemplateSelector>
+    </Mvvm:UserControlView.Resources>
+
+
+    <DockPanel LastChildFill="True">
+
+        <ComboBox DockPanel.Dock="Top" ItemsSource="{Binding Path=Indexes}" SelectedItem="{Binding Path=TemplateIndex}" />
+        <TextBlock DockPanel.Dock="Top" Text="{Binding Path=NumberOfRecipients}" />
+        <Button DockPanel.Dock="Top" Content="_Refresh Recipients" Command="{Binding Path=RefreshRecipients}" />
+        <ListView DockPanel.Dock="Top" ItemsSource="{Binding Path=Recipients}" />
+
+        <ContentControl Content="{Binding Path=TemplateIndex}" ContentTemplateSelector="{StaticResource ResourceKey=Templates}" />
+
+    </DockPanel>
+</Mvvm:UserControlView>

@@ -1,0 +1,10 @@
+﻿<mvvm:WindowView x:Class="DemiCode.Hours.Win.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm"
+    xmlns:hours="clr-namespace:DemiCode.Hours.Win"
+    Height="299" Width="415">
+    <Grid>
+        
+    </Grid>
+</mvvm:WindowView>

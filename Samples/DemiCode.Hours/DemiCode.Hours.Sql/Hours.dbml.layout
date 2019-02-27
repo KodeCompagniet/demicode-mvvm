@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Hours">
+  <DataContextMoniker Name="/HoursDataContext" />
+  <nestedChildShapes>
+    <classShape Id="50eff46f-24c3-4ce7-a62c-1391cb2edfa1" absoluteBounds="2, 1.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HoursDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdb162c8-544a-4d63-8ed8-9df51f23eb54" absoluteBounds="2.015, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf43b8f5-cef0-4e04-a922-2f3c107b65e9" absoluteBounds="5.625, 1.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/HoursDataContext/Project" />
+      <nestedChildShapes>
+        <elementListCompartment Id="535c0bb8-39f9-4e87-bc9a-416c3fa83afe" absoluteBounds="5.64, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4 : 2.19314697265625); (5.625 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HoursDataContext/Employee/Employee_Project" />
+      <nodes>
+        <classShapeMoniker Id="50eff46f-24c3-4ce7-a62c-1391cb2edfa1" />
+        <classShapeMoniker Id="bf43b8f5-cef0-4e04-a922-2f3c107b65e9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6cf6b908-c042-4946-aeb3-43d1dd2e1f28" absoluteBounds="4.625, 4.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/HoursDataContext/WorkItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a3b6010-d57a-40b3-a8b1-325b9386ec93" absoluteBounds="4.64, 4.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 3.27089680989583); (3 : 5.23159912109375); (4.625 : 5.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HoursDataContext/Employee/Employee_WorkItem" />
+      <nodes>
+        <classShapeMoniker Id="50eff46f-24c3-4ce7-a62c-1391cb2edfa1" />
+        <classShapeMoniker Id="6cf6b908-c042-4946-aeb3-43d1dd2e1f28" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 2.8862939453125); (6.125 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HoursDataContext/Project/Project_WorkItem" />
+      <nodes>
+        <classShapeMoniker Id="bf43b8f5-cef0-4e04-a922-2f3c107b65e9" />
+        <classShapeMoniker Id="6cf6b908-c042-4946-aeb3-43d1dd2e1f28" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

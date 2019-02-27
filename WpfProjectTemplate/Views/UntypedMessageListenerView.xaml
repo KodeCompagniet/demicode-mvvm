@@ -1,0 +1,12 @@
+﻿<Mvvm:UserControlView x:Class="WpfProjectTemplate.Views.UntypedMessageListenerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Mvvm="clr-namespace:DemiCode.Mvvm;assembly=DemiCode.Mvvm"
+                      xmlns:Views="clr-namespace:WpfProjectTemplate.Views" mc:Ignorable="d" 
+                      d:DataContext="{d:DesignInstance Views:UntypedMessageListenerViewModel}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TextBlock Name="root"  Text="{Binding Path=TheModel}" />
+    </Grid>
+</Mvvm:UserControlView>

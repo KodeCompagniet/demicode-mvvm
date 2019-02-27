@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Hours" Class="HoursDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MSSQL2008;Initial Catalog=Hours;Integrated Security=True" SettingsObjectName="DemiCode.Hours.Sql.Properties.Settings" SettingsPropertyName="HoursConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Employee_Project" Member="Projects" ThisKey="Id" OtherKey="ManagerId" Type="Project" />
+      <Association Name="Employee_WorkItem" Member="WorkItems" ThisKey="Id" OtherKey="EmployeeId" Type="WorkItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Manager" Member="ManagerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Project_WorkItem" Member="WorkItems" ThisKey="Id" OtherKey="ProjectId" Type="WorkItem" />
+      <Association Name="Employee_Project" Member="Manager" ThisKey="ManagerId" OtherKey="Id" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkItem" Member="WorkItems">
+    <Type Name="WorkItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Employee" Member="EmployeeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Project" Member="ProjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="Employee_WorkItem" Member="Employee" ThisKey="EmployeeId" OtherKey="Id" Type="Employee" IsForeignKey="true" />
+      <Association Name="Project_WorkItem" Member="Project" ThisKey="ProjectId" OtherKey="Id" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
