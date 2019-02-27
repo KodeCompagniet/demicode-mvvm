@@ -87,6 +87,9 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\DemiCode.Mvvm.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -180,6 +183,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\DemiCode.Mvvm.snk">
+      <Link>DemiCode.Mvvm.snk</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
